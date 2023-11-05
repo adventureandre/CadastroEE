@@ -1,0 +1,13 @@
+//OBS: usado o glassfish7
+
+
+//Criar a connecçao do glasfish
+bin/asadmin create-jdbc-connection-pool --datasourceclassname com.microsoft.sqlserver.jdbc.SQLServerDataSource --restype javax.sql.DataSource --property user=Usuario:password=Senha:databaseName=Loja:serverName=localhost:portNumber=1433:loginTimeout=30:useSSL=false:encrypt=true:trustServerCertificate=true SQLServerPool
+
+
+//PInG
+ping-connection-pool SQLServerPool
+
+//JDBC
+
+bin/asadmin create-jdbc-resource --connectionpoolid SQLServerPool jdbc/Loja
